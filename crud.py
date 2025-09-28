@@ -41,10 +41,10 @@ def atualizar_idade(id_aluno, nova_idade):
         finally:
             cursor.close()
             conexao.close()
-lista = listar_alunos()
+# lista = listar_alunos()
 
-for aluno in lista:
-    print(f"Idade - {aluno[0]} - Nome: {aluno[1]} - Idade: {aluno[2]}")
+# for aluno in lista:
+#     print(f"Idade - {aluno[0]} - Nome: {aluno[1]} - Idade: {aluno[2]}")
 # id = int(input("Digite o id do aluno que você deseja alterar a idade: "))
 # idade = int(input("Digite a nova idade do aluno: "))
 # atualizar_idade(id, idade)
@@ -65,5 +65,3 @@ def deletar_aluno(id):
         finally:
             cursor.close()
             conexao.close()
-id = int(input("Digite o id do aluno que você deseja deletar: "))
-deletar_aluno(id)
