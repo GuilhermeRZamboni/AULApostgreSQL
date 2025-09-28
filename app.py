@@ -33,7 +33,8 @@ elif menu == "Atualizar":
         nova_idade = st.number_input("Nova idade do aluno", min_value=16, max_value=120, step=1)
         for aluno in alunos:
             if aluno[0] == id_aluno:
-                st.write(f"Nome do aluno: {aluno[1]}, Idade atual: {aluno[2]} anos")
+                tabela_aluno = [{"ID": aluno[0], "Nome": aluno[1], "Idade": aluno[2]}]
+                st.table(tabela_aluno)
                 break
         if st.button("Atualizar idade"):
             atualizar_idade(id_aluno, nova_idade)
@@ -47,7 +48,10 @@ elif menu == "Deletar":
         id_aluno = st.selectbox("Selecione o ID do aluno que deseja deletar:", [linha[0] for linha in alunos])
         for aluno in alunos:
             if aluno[0] == id_aluno:
-                st.write(f"Nome do aluno: {aluno[1]}, Idade atual: {aluno[2]} anos")
+                tabela_aluno = [{"ID": aluno[0], "Nome": aluno[1], "Idade": aluno[2]}]
+                st.table(tabela_aluno)
+                break
+
         if st.button("Deletar aluno"):
             deletar_aluno(id_aluno)
             st.success(f"Aluno com ID {id_aluno} deletado com sucesso!")
