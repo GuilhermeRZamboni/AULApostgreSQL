@@ -25,6 +25,11 @@ Este projeto é uma aplicação web simples para gerenciar alunos utilizando Pyt
 - `.env`: Variáveis de ambiente para configuração do banco de dados.
 - `requirements.txt`: Dependências do projeto.
 
+## Clone este Repositório
+
+```sh
+git clone https://github.com/GuilhermeRZamboni/AULApostgreSQL
+```
 ## Como Executar
 
 1. Instale as dependências:
