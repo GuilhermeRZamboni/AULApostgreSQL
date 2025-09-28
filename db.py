@@ -24,8 +24,3 @@ def conectar():
         print(f"Erro na conexão : {erro}")
         return None, None
     
-conexao, cursor = conectar()
-cursor.execute("INSERT INTO alunos(nome, idade) VALUES (%s, %s)", 
-               ("Guilherme", 16))
-conexao.commit()
-conexao.close()
