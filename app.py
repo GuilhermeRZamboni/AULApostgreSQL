@@ -11,7 +11,7 @@ if menu == "Inserir":
     idade = st.number_input("Idade do aluno", min_value=16, max_value=120, step=1)
     if st.button("Criar aluno"):
         if nome.strip() == "":
-            st.error("O nome do aluno não pode ser vazio.")
+            st.error("O nome do aluno não pode ser vazio")
         else:
             criar_aluno(nome, idade)
             st.success(f"Aluno {nome} com {idade} anos criado com sucesso!")
@@ -23,4 +23,16 @@ elif menu == "Listar":
         tabela_alunos = [{"ID": linha[0], "Nome": linha[1], "Idade": linha[2]} for linha in alunos]
         st.table(tabela_alunos)
     else:
-        st.write("Nenhum aluno encontrado.")
+        st.write("Nenhum aluno encontrado")
+
+elif menu == "Atualizar":
+    st.subheader("Atualizar idade do aluno")
+    alunos = listar_alunos()
+    if alunos:
+        id_aluno = st.selectbox("Selecione o ID do aluno:", [linha[0] for linha in alunos])
+        nova_idade = st.number_input("Nova idade do aluno", min_value=16, max_value=120, step=1)
+        if st.button("Atualizar idade"):
+            atualizar_idade(id_aluno, nova_idade)
+            st.success(f"Idade do aluno com ID {id_aluno} atualizada para {nova_idade} anos!")
+    else:
+        st.info("Nenhum aluno encontrado para atualizar")
