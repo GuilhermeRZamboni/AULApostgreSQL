@@ -12,8 +12,15 @@ if menu == "Inserir":
     if st.button("Criar aluno"):
         if nome.strip() == "":
             st.error("O nome do aluno não pode ser vazio.")
-        elif idade == "":
-            st.error("A idade do aluno não pode ser vazia.")
         else:
             criar_aluno(nome, idade)
             st.success(f"Aluno {nome} com {idade} anos criado com sucesso!")
+elif menu == "Listar":
+    st.subheader("Listar alunos")
+    alunos = listar_alunos() 
+
+    if alunos:
+        tabela_alunos = [{"ID": linha[0], "Nome": linha[1], "Idade": linha[2]} for linha in alunos]
+        st.table(tabela_alunos)
+    else:
+        st.write("Nenhum aluno encontrado.")
