@@ -55,4 +55,4 @@ Este projeto é uma aplicação web simples para gerenciar alunos utilizando Pyt
 
 ## Licença
 
-Este projeto é
+Este projeto é apenas para fins educacionais.
