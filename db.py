@@ -1,13 +1,13 @@
 import psycopg2 as pg
-from dotenv import load_dotenv as ld
+from dotenv import load_dotenv 
 import os
 # pip install psycopg2
 # pip install dotenv
 
 #Carrear as variaveis do .env
-ld()
+load_dotenv()
 
-paraments = {
+params = {
     "dbname" : os.getenv("DB_NAME"),
     "user" : os.getenv("DB_USER"),
     "password" : os.getenv("DB_PASSWORD"),
@@ -15,3 +15,17 @@ paraments = {
     "port" : os.getenv("DB_PORT")
 }
 
+def conectar():
+    try:
+        conexao = pg.connect(**params)
+        cursor = conexao.cursor()
+        return conexao, cursor
+    except Exception as erro:
+        print(f"Erro na conexão : {erro}")
+        return None, None
+    
+conexao, cursor = conectar()
+cursor.execute("INSERT INTO alunos(nome, idade) VALUES (%s, %s)", 
+               ("Guilherme", 16))
+conexao.commit()
+conexao.close()
